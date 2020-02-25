@@ -11,6 +11,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 
 ### PHP Hosting
 I think you can use any PHP Hosting unless it doesn't support `fopen()`, I personally use [Namecheap Shared Hosting](https://www.namecheap.com/hosting/shared/).
+1. Paste your site URL in at `{your-site-url}` for the `$site` variable at `config.php`.
 ---
 
 ### Font Awesome Kit
