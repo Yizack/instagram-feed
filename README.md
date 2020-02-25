@@ -11,7 +11,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 
 - ### PHP Hosting
   I think you can use any PHP Hosting unless it doesn't support `fopen()`, I personally use [Namecheap Shared Hosting](https://www.namecheap.com/hosting/shared/).
-1. Paste your site URL in at `{your-site-url}` for the `$site` variable at `config.php`.
+1. Paste your site URL in `{your-site-url}` for the `$site` variable at `config.php`.
 
 - ### Font Awesome Kit
   Font Awesome is the most popular way to add font icons to your website [[1]](https://www.ostraining.com/blog/general/font-awesome/).
@@ -24,7 +24,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 [![Font Awesome Step 3](https://yizack.com/images/instagram-feed/font-awesome-3.jpg)](https://fontawesome.com/start)
 4. When you have set up your account, your script will be displayed.
 [![Font Awesome Step 4](https://yizack.com/images/instagram-feed/font-awesome-4.jpg)](https://fontawesome.com/start)
-5. Paste your kit URL in at `{fontawesome-kit-url}` for the `$fontawesome` variable at `config.php`.
+5. Paste your kit URL in `{fontawesome-kit-url}` for the `$fontawesome` variable at `config.php`.
 
 - ### Facebook Developer App
   In order to use the instagram API, we must first create a Facebook App. Follow the steps below to create a Facebook App.
@@ -65,4 +65,4 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 [![Instagram App Step 7](https://yizack.com/images/instagram-feed/instagram-app-7.jpg)](https://developers.facebook.com/)
 8. Copy the generated Token.
 [![Instagram App Step 8](https://yizack.com/images/instagram-feed/instagram-app-8.jpg)](https://developers.facebook.com/)
-9. Paste your token in at `{long-lived-access-token}` for the `$token` variable at `config.php`.
+9. Paste your token in `{long-lived-access-token}` for the `$token` variable at `config.php`.
