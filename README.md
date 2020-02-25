@@ -55,7 +55,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 [![Instagram App Step 2](https://yizack.com/images/instagram-feed/instagram-app-2.jpg)](https://developers.facebook.com/)
 3. Add Instagram testers.
 [![Instagram App Step 3](https://yizack.com/images/instagram-feed/instagram-app-3.jpg)](https://developers.facebook.com/)
-4. Enter your Instagram username and selct it.
+4. Enter your Instagram username and select it.
 [![Instagram App Step 4](https://yizack.com/images/instagram-feed/instagram-app-4.jpg)](https://developers.facebook.com/)
 5. Go to your Instagram account settings page > App and Websites > Tester invites, accept the invite.
 [![Instagram App Step 5](https://yizack.com/images/instagram-feed/instagram-app-5.jpg)](https://developers.facebook.com/)
