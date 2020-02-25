@@ -10,12 +10,12 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 ## Requeriments Guide
 
 - ### PHP Hosting
-I think you can use any PHP Hosting unless it doesn't support `fopen()`, I personally use [Namecheap Shared Hosting](https://www.namecheap.com/hosting/shared/).
+  I think you can use any PHP Hosting unless it doesn't support `fopen()`, I personally use [Namecheap Shared Hosting](https://www.namecheap.com/hosting/shared/).
 1. Paste your site URL in at `{your-site-url}` for the `$site` variable at `config.php`.
 
 - ### Font Awesome Kit
-Font Awesome is the most popular way to add font icons to your website [[1]](https://www.ostraining.com/blog/general/font-awesome/).
-To get your icon kit for free follow the next steps.
+  Font Awesome is the most popular way to add font icons to your website [[1]](https://www.ostraining.com/blog/general/font-awesome/).
+  To get your icon kit for free follow the next steps.
 1. Click [here](https://fontawesome.com/start) and enter your email address.
 [![Font Awesome Step 1](https://yizack.com/images/instagram-feed/font-awesome-1.jpg)](https://fontawesome.com/start)
 2. Check your email to confirm and set up your account.
@@ -27,7 +27,7 @@ To get your icon kit for free follow the next steps.
 5. Paste your kit URL in at `{fontawesome-kit-url}` for the `$fontawesome` variable at `config.php`.
 
 - ### Facebook Developer App
-In order to use the instagram API, we must first create a Facebook App. Follow the steps below to create a Facebook App.
+  In order to use the instagram API, we must first create a Facebook App. Follow the steps below to create a Facebook App.
 1. Go to [Facebook for Developers site](https://developers.facebook.com/), login and click Create App.
 [![Facebook App Step 1](https://yizack.com/images/instagram-feed/facebook-app-1.jpg)](https://developers.facebook.com/)
 2. Create your App ID.
@@ -48,6 +48,7 @@ In order to use the instagram API, we must first create a Facebook App. Follow t
 [![Facebook App Step 7](https://yizack.com/images/instagram-feed/facebook-app-7.jpg)](https://developers.facebook.com/)
 
 - ### Instagram Basic Display API
+  Now it's time to authorize your instagram account.
 1. Back to Products > Instagram > Basic Display. Create new App.
 [![Instagram App Step 1](https://yizack.com/images/instagram-feed/instagram-app-1.jpg)](https://developers.facebook.com/)
 2. Fill OAuth Redirect, Deauthorize Callback and Data Deletion Request URL with your site URL and save changes.
