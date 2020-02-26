@@ -49,9 +49,11 @@ Embed Instagram profile feed from your instagram accounts on your website using 
   ```
   - Buttons for navigate between posts.
   ```html
+  ...
   <p id="post_number">Post: <span id="n">1</span></p>
   <a class="btn btn-dark" href="#0" onclick="next();" id="next"><i class="fas fa-arrow-right"></i></a>
   <a class="btn btn-dark" href="#0" onclick="prev();" id="prev"><i class="fas fa-arrow-left"></i></a>
+  ...
   ```
   - This javascript code will allow us to navigate between each of the Instagram posts using buttons.
   ```javascript
