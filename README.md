@@ -28,7 +28,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
   - `fontawesome()` returns the Font Awesome kit URL given at `config.php`.
 - `feed.php`: This is the main script, it calls `refreshToken()` first to verify the update date, then assigns the data returned from `instagramFeed()` to a `$post` variable, below is the HTML document with Bootstrap 4 CSS library.
   - This code section will loop the `post($username, $permalink, $caption, $timestamp)` function for each Instagram post found.
-  ```php
+  ```html
   ...
       <div class="container-fluid">
         <div class="row flex-row flex-nowrap">
