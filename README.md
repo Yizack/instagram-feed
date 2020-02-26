@@ -112,7 +112,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 [![Facebook App Step 2](https://yizack.com/images/instagram-feed/facebook-app-2.jpg)](https://developers.facebook.com/)
 3. In the products tab, add Instagram to use the Instagram API
 [![Facebook App Step 3](https://yizack.com/images/instagram-feed/facebook-app-3.jpg)](https://developers.facebook.com/)
-4. In the Instagram menu, click *Basic Display*, then click *Settings* to update your App settings.
+4. In the Instagram menu, click **Basic Display**, then click **Settings** to update your App settings.
 [![Facebook App Step 4](https://yizack.com/images/instagram-feed/facebook-app-4.jpg)](https://developers.facebook.com/)
 5. Fill these required fields.
     - Privacy Policy URL (Must be a valid url, even if not a privacy policy url)
@@ -137,7 +137,7 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 [![Instagram App Step 4](https://yizack.com/images/instagram-feed/instagram-app-4.jpg)](https://developers.facebook.com/)
 5. Go to your Instagram account settings page > App and Websites > Tester invites, accept the invite.
 [![Instagram App Step 5](https://yizack.com/images/instagram-feed/instagram-app-5.jpg)](https://developers.facebook.com/)
-6. Back to Products > Instagram > Basic Displa > User Token Generator, you Instagram account should appear, then click Generate Token button for authorize and generate long-lived access token for instagram.
+6. Back to Products > Instagram > Basic Display > User Token Generator, you Instagram account should appear, then click Generate Token button for authorize and generate long-lived access token for instagram.
 [![Instagram App Step 6](https://yizack.com/images/instagram-feed/instagram-app-6.jpg)](https://developers.facebook.com/)
 7. Login and authorize the App.
 [![Instagram App Step 7](https://yizack.com/images/instagram-feed/instagram-app-7.jpg)](https://developers.facebook.com/)
