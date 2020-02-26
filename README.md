@@ -78,9 +78,8 @@ Embed Instagram profile feed from your instagram accounts on your website using 
   </script>
   ...
   ```
-  - `post($username, $permalink, $caption, $timestamp)` within this function is a HTML `<blockquote>` code that is provided by instargam when you want to embed a post. I add the parameter values of `$username`, `$permalink`, `$caption`, and `$timestamp` for each post.
+  - Inside `post($username, $permalink, $caption, $timestamp)` function there is a HTML `<blockquote>` code that is provided by instargam when you want to embed a post. I add the parameter values of `$username`, `$permalink`, `$caption`, and `$timestamp` for each post.
 - `update.json` this file will contains the date when your Instagram long-lived access token was refreshed.
-
 
 ## Requeriments Guide
 
