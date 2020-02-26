@@ -1,7 +1,7 @@
 # instagram-feed
 Embed Instagram profile feed from your instagram accounts on your website using PHP.\
 Live [Demo](https://instagram-feed.yizack.com/demo/)
-[![Live Demo](https://yizack.com/images/instagram-feed/font-awesome-1.jpg)](https://fontawesome.com/start)
+[![Live Demo](https://yizack.com/images/instagram-feed/demo.jpg)](https://fontawesome.com/start)
 
 ## Requeriments
 - PHP Hosting (with `cURL` and `fopen()` support) [[Guide]](#php-hosting)
