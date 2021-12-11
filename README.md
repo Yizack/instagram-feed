@@ -5,7 +5,6 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 
 ## Requeriments
 - PHP Hosting (with `cURL` and `fopen()` support) [[Guide]](#php-hosting)
-- Font Awesome Kit [[Guide]](#font-awesome-kit)
 - Facebook Developer App [[Guide]](#facebook-developer-app)
 - Instagram Basic Display API [[Guide]](#instagram-basic-display-api)
 
