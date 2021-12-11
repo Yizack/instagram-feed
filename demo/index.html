@@ -4,10 +4,7 @@
   <title>Instagram Feed Demo | Yizack</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
   .fakeimg {
     height: 200px;
@@ -17,29 +14,31 @@
   </head>
   <body>
 
-  <div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="py-5 text-center" style="margin-bottom:0">
   <h1>Yizack/instagram-feed Demo</h1>
   <p>This is a demo of instagram-feed on a website.</p> 
   </div>
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="https://yizack.com">Yizack</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/Yizack">Github</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/Yizack/instagram-feed">Repository</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Guide</a>
-      </li> 
-    </ul>
-  </div>  
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://yizack.com">Yizack</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/Yizack">Github</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/Yizack/instagram-feed">Repository</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Guide</a>
+          </li> 
+        </ul>
+      </div>
+    </div>  
   </nav>
   <section class="py-5">
     <div class="container">
@@ -47,8 +46,8 @@
         <div class="col-sm-12">
           <h2 class="text-center">INSTAGRAM FEED</h2>
           <div class="row">
-            <div class="col-lg-12 feed">
-              <iframe style="border: none;" src="https://instagram-feed.yizack.com/feed" width="100%" height="745.4px"></iframe>
+            <div class="col-lg-12" style="height: fit-content;">
+              <iframe style="border: none; height: 100vh" src="https://instagram-feed.yizack.com/feed" width="100%"></iframe>
             </div>
           </div>
         </div>
@@ -56,9 +55,11 @@
     </div>
   </section>
   <footer>
-    <div class="jumbotron text-center" style="margin-bottom:0">
-      <p>Yizack</p>
+    <div class="py-3 text-center bg-secondary text-white" style="margin-bottom:0">
+      <p class="mb-0">Yizack</p>
     </div>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -36,10 +36,4 @@ function instagramFeed(){
     $url = "https://graph.instagram.com/me/media?fields=username,permalink,timestamp,caption&access_token=$token";
     return request($url)["data"];
 }
-
-function fontawesome(){
-    global $fontawesome;
-    return $fontawesome;
-}
-
 ?>

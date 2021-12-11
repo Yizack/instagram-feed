@@ -7,88 +7,108 @@ $post = instagramFeed();
 
 <html>
   <head>
-    <meta charset="utf-8"/>
+  <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="<?= fontawesome(); ?>" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css"/>
   </head>
   <style>
-    html {
-      height: fit-content;
+    html, body {
+        height: fit-content;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        margin: 0;
+        background: transparent;
     }
+    
     iframe {
-      min-width: 0 !important;
-      margin: auto!important;
+        min-width: 0 !important;
+        margin: auto!important;
     }
-    body {
-      height: fit-content;
-      overflow-y: hidden;
-      overflow-x: hidden;
-      background: transparent;
+
+    .ig-feed {
+          margin-top: -62.6px !important;
     }
-    #next, #post_number, #prev {
-      position:fixed;
+    
+    .slick-slider {
+        touch-action: auto;
+        -ms-touch-action: auto;
     }
-    #next {
-      bottom:0;
-      right:0;
+    
+    [tabindex="-1"]:focus:not(:focus-visible) {
+        outline: none!important;
     }
-    #post_number {
-      bottom:1.5em;
-      right:1.5em;
+
+    
+    .slick-prev {
+        left: 0;
+        z-index: 1;
     }
-    #prev {
-      bottom:0;
-      right:3.2em;
+    
+    .slick-next {
+        right: 13px;
+        z-index: 1;
     }
-    .instagram_post {
-      margin-top: -54.6px !important;
+    
+    .slick-prev:before, .slick-next:before {
+        opacity: 1!important;
+        color: black;
+        font-size: 2rem;
+    }
+    
+    .slick-slide {
+        height: unset;
     }
   </style>
   <body>
-    <div class="container-fluid">
-      <div class="row flex-row flex-nowrap">
+  <div class="ig-feed" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
 <?
-  for ($x = 0; $x < count($post); $x++) {
+for ($x = 0; $x < count($post); $x++) {
     $username = $post[$x]["username"];
     $permalink = $post[$x]["permalink"];
-    $caption = $post[$x]["caption"];
+    if(isset($post[$x]["caption"])) {
+        $caption = $post[$x]["caption"];
+    }
     $timestamp = $post[$x]["timestamp"];
 ?>
-        <div class="instagram_post col-12 col-lg-4" id="<?= $x; ?>">
-          <?= post($username, $permalink, $caption, $timestamp); ?>
-        </div>
-<?
-  }
-?>
+    
+      <div class="text-center">
+        <?= post($username, $permalink, $caption, $timestamp); ?>
       </div>
+<?
+}
+?>
     </div>
-    <p id="post_number">Post: <span id="n">1</span></p>
-    <a class="btn btn-dark" href="#0" onclick="next();" id="next"><i class="fas fa-arrow-right"></i></a>
-    <a class="btn btn-dark" href="#0" onclick="prev();" id="prev"><i class="fas fa-arrow-left"></i></a>
-    <script async src="//www.instagram.com/embed.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-      let n = 0;
-      function next(){
-        n = n+1;
-        if (n >= <?=count($post);?>){
-          n = 0;
-        }
-        $("#next").attr("href", "#" + n);
-        $("#n").html(n+1);
-      }
-      
-      function prev(){
-        n = n-1;
-        if (n < 0){
-          n = <?=count($post);?> -1;
-        }
-        $("#prev").attr("href", "#" + n);
-        $("#n").html(n+1);
-      }
+        $('.ig-feed').slick({
+          infinite: false,
+          speed: 300,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          adaptiveHeight: true,
+          dots:false,
+          arrows: true,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              }
+            }
+          ]
+        });
     </script>
   </body>
 <html>
@@ -96,9 +116,9 @@ $post = instagramFeed();
 <?
 function post($username, $permalink, $caption, $timestamp){
 ?>
-<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: auto; max-width:540px; min-width:326px; padding:0; width:90%;">
   <div style="padding:16px;">
-    <a href="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+    <a href="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none;" target="_blank">
       <div style=" display: flex; flex-direction: row; align-items: center;">
         <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div>
         <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">

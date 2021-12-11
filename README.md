@@ -13,17 +13,16 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 - Edit `config.php`
   - Paste your Instagram Basic Display API long-lived access token in `{long-lived-access-token}` for the `$token` variable.
   - Paste your site URL in `{your-site-url}` for the `$site` variable.
-  - Paste your Font Awesome kit URL in `{fontawesome-kit-url}` for the `$fontawesome` variable.
 - Use the code below, replace `http://your-site.com/feed` with your site URL and paste it on your site where you want your Instagram feed to appear.
   ```html
-  <iframe style="border: none;" src="http://your-site.com/feed" width="100%" height="745.4px"></iframe>
+  <iframe style="border: none;height: 100vh" src="http://your-site.com/feed" width="100%"></iframe>
   ```
 
 ## About the code
 - `config.php`: Global variables for setup your Instagram Feed.
 - `functions.php`: Functions that will be used in `feed.php`.
   - `request($url)`: This function is used for cURL requests and returns the data.
-  - `refreshToken()`:  The Instagram long-lived access token token expires in 60 days, but it can be refreshed every 24 hours to restart the expiration time so I made this function to refresh the token when 24 hours or more have passed since the last update date located at `update.json` file. If 24 hours have been passed, it overwrites the update date in the .json file.
+  - `refreshToken()`:  The Instagram long-lived access token token expires in 60 days, but it can be refreshed every 24 hours to restart the expiration time so I wrote this function to refresh the token when 24 hours or more have passed since the last update date located at `update.json` file. If 24 hours have been passed, it overwrites the update date in the .json file.
   - `instagramFeed()`: This function calls the Instagram API with your long-lived access token and returns an array with the data of your last 25 posts. The information returned by this function is given by the `fields` GET parameter in `https://graph.instagram.com/me/media?fields=username,permalink,timestamp,caption&access_token=$token`, this request will return `username`, `permalink`, `timestamp` and `caption` for each Instagram post.
   - `fontawesome()` returns the Font Awesome kit URL given at `config.php`.
 - `feed.php`: This is the main script, it calls `refreshToken()` first to verify the update date, then assigns the data returned from `instagramFeed()` to a `$post` variable, below is the HTML document with Bootstrap 4 CSS library.
@@ -36,7 +35,9 @@ Embed Instagram profile feed from your instagram accounts on your website using 
     for ($x = 0; $x < count($post); $x++) {
       $username = $post[$x]["username"];
       $permalink = $post[$x]["permalink"];
-      $caption = $post[$x]["caption"];
+      if(isset($post[$x]["caption"])) {
+        $caption = $post[$x]["caption"];
+      }
       $timestamp = $post[$x]["timestamp"];
   ?>
           <div class="instagram_post col-12 col-lg-4" id="<?= $x; ?>">
@@ -49,36 +50,35 @@ Embed Instagram profile feed from your instagram accounts on your website using 
       </div>
   ...
   ```
-  - Buttons for navigate between posts.
-  ```html
-  ...
-  <p id="post_number">Post: <span id="n">1</span></p>
-  <a class="btn btn-dark" href="#0" onclick="next();" id="next"><i class="fas fa-arrow-right"></i></a>
-  <a class="btn btn-dark" href="#0" onclick="prev();" id="prev"><i class="fas fa-arrow-left"></i></a>
-  ...
-  ```
-  - This javascript code will allow us to navigate between each of the Instagram posts using buttons.
+  - Javascript slick-carousel code settings.
   ```javascript
   ...
   <script>
-    let n = 0;
-    function next(){
-      n = n+1;
-      if (n >= <?=count($post);?>){
-        n = 0;
-      }
-      $("#next").attr("href", "#" + n);
-      $("#n").html(n+1);
-    }
-    
-    function prev(){
-      n = n-1;
-      if (n < 0){
-        n = <?=count($post);?> -1;
-      }
-      $("#prev").attr("href", "#" + n);
-      $("#n").html(n+1);
-    }
+    $('.ig-feed').slick({
+      infinite: false,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      adaptiveHeight: true,
+      dots:false,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
+    });
   </script>
   ...
   ```
@@ -90,19 +90,6 @@ Embed Instagram profile feed from your instagram accounts on your website using 
 - ### PHP Hosting
   I think you can use any PHP Hosting unless it doesn't support `cURL` or `fopen()`, I personally use [Namecheap Shared Hosting](https://www.namecheap.com/hosting/shared/).
 1. Paste your site URL in `{your-site-url}` for the `$site` variable at `config.php`.
-
-- ### Font Awesome Kit
-  Font Awesome is the most popular way to add font icons to your website [[1]](https://www.ostraining.com/blog/general/font-awesome/).
-  To get your icon kit for free follow the next steps.
-1. Click [here](https://fontawesome.com/start) and enter your email address.
-[![Font Awesome Step 1](https://yizack.com/images/instagram-feed/font-awesome-1.jpg)](https://fontawesome.com/start)
-2. Check your email to confirm and set up your account.
-[![Font Awesome Step 2](https://yizack.com/images/instagram-feed/font-awesome-2.jpg)](https://fontawesome.com/start)
-3. Setup your account.
-[![Font Awesome Step 3](https://yizack.com/images/instagram-feed/font-awesome-3.jpg)](https://fontawesome.com/start)
-4. When you have set up your account, your script will be displayed.
-[![Font Awesome Step 4](https://yizack.com/images/instagram-feed/font-awesome-4.jpg)](https://fontawesome.com/start)
-5. Paste your kit URL in `{fontawesome-kit-url}` for the `$fontawesome` variable at `config.php`.
 
 - ### Facebook Developer App
   In order to use the instagram API, we must first create a Facebook App. Follow the steps below to create a Facebook App.
