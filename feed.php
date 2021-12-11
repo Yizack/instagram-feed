@@ -60,6 +60,10 @@ $post = instagramFeed();
     .slick-slide {
         height: unset;
     }
+
+    .slick-list {
+        height: 100%!important;
+    }
   </style>
   <body>
   <div class="ig-feed" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
