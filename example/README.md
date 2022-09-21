@@ -79,6 +79,7 @@ Page and **Glide.js** arrows CSS styling in `<head>`.
     overflow-x: hidden;
     background: transparent;
     margin: 0;
+    -webkit-tap-highlight-color: transparent;
   }
   
   iframe {
