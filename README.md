@@ -83,7 +83,7 @@ In order to use the **Instagram API**, we must first create a **Meta App**. Foll
 [![Meta App Step 3](https://yizack.com/images/instagram-feed/meta-app-3.jpg)](https://developers.facebook.com/)
 4. Scroll down until you see an alert and click on **Settings** to update your App settings.
 [![Meta App Step 4](https://yizack.com/images/instagram-feed/meta-app-4.jpg)](https://developers.facebook.com/)
-5. Scroll down and click on thhe **Add Platform** button.
+5. Scroll down and click on the **Add Platform** button.
 [![Meta App Step 5](https://yizack.com/images/instagram-feed/meta-app-5.jpg)](https://developers.facebook.com/)
 6. Select the platform **Website**.
 [![Meta App Step 6](https://yizack.com/images/instagram-feed/meta-app-6.jpg)](https://developers.facebook.com/)
