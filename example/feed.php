@@ -19,6 +19,7 @@ $feed = new InstagramFeed(
         overflow-x: hidden;
         background: transparent;
         margin: 0;
+        -webkit-tap-highlight-color: transparent;
       }
       
       iframe {
