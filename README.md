@@ -45,6 +45,7 @@ foreach ($feed->getFeed() as $value) {
 
 ## About the code
 ### `InstagramFeed` constructor arguments
+
 | Argument | Type | Description | Optional | Default value |
 |---|---|---|---|---|
 | `token` | string | Your Instagram Basic Display `long-lived-access-token`. | No |  |
@@ -56,6 +57,7 @@ Updates the date of the last token update and requests feed data from an Instagr
 
 
 Returns an array with the data of the last 25 posts with the following data for each one:
+
 | Key | Description |
 |---|---|
 | `username` | Instagram username. |
