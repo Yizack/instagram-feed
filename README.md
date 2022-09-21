@@ -4,12 +4,12 @@ PHP library to retrieve Instagram profile feed, embed Instagram profile feed of 
 [![Live Demo](https://yizack.com/images/instagram-feed/demo.gif)](https://instagram-feed.yizack.com/demo/)
 
 ## Requeriments
-- PHP Hosting (with `composer` and `fopen()` support) [[Guide]](#php-hosting)
+- PHP Hosting (with `composer` and `fopen()` support)
 - Meta Developer App [[Guide]](#meta-developer-app)
 - Instagram Basic Display API [[Guide]](#instagram-basic-display-api)
 
 ## Installation
-- To install the library, make sure  you have Composer installed and in your command terminal run the following command:
+To install the library, make sure you have [Composer](https://getcomposer.org/) installed and using your command terminal run the following:
 ```sh
 composer require yizack/instagram-feed
 ```
@@ -17,34 +17,64 @@ composer require yizack/instagram-feed
 ## Use
 Installing this library will allow you to use the class `InstagramFeed` just by importing the composer autoload.
 
-- Import the composer autoload and initialize the `InstagramFeed` object.
+Import the composer autoload, use the namespace `Yizack\InstagramFeed` and initialize the `InstagramFeed` object.
 ```php
-require 'vendor/autoload.php';
+require "vendor/autoload.php";
+use Yizack\InstagramFeed;
 
-$feed = new Yizack\InstagramFeed(
+$feed = new InstagramFeed(
   "long-lived-access-token" // Paste your long-lived-access-token here
 );
 ```
 
-- To get your Instagram feed array use the `getFeed()` function.
+To retrieve your Instagram feed array use the `getFeed()` function.
 ```php
 $array = $feed->getFeed();
 ```
 
-- Or loop it directly in a `foreach` method wherever you need it.
+Or loop it directly in a `foreach` method wherever you need it.
 ```php
-foreach($feed->getFeed() as $value) {
+foreach ($feed->getFeed() as $value) {
     // your code
 }
 ```
 
-## Requeriments Guide
+## About the code
+### `InstagramFeed` constructor parameters
+| Parameter | Description | Optional | Default value |
+|---|---|---|---|
+| `token` | Your Instagram Basic Display `long-lived-access-token`. | No |  |
+| `path` | The path where the updated file will be saved on your server. | Yes | `ig_token` |
+| `filename` | The name of the file in which the date of the last token update will be stored. | Yes | `updated.json` |
 
-- ### PHP Hosting
+### `getFeed()` function
+Updates the date of the last token update and requests feed data from an Instagram account.
+
+Returns the following data for each post:
+| Key | Description |
+|---|---|
+| `username` | Instagram username. |
+| `permalink` | Instagram post permalink. |
+| `timestamp` | Instagram post timestamp. |
+| `caption` | Instagram post caption. |
+| `id` | Instagram post identifier. |
+
+### Long-Lived Access token
+This approach uses **Long-Lived Access** Tokens obtained by authorizing your Instagram account with your Meta App.
+
+Since Long-lived tokens are valid for 60 days and can be refreshed as long as they are at least 24 hours old and not expired, the `getFeed()` method will refresh your token everytime it is been called if 24 hours have passed.
+
+Tokens that have not been refreshed in 60 days will expire and can no longer be refreshed, so be sure to visit often the site where you placed the feed.
+
+## Example of use
+Check the [`example`](/example) folder for details.
+
+## Requeriments Guide
+### PHP Hosting
   I think you can use any PHP Hosting unless it doesn't support `fopen()`.
 
-- ### Meta Developer App
-  In order to use the Instagram API, we must first create a Meta App. Follow the steps below to create a Meta App.
+### Meta Developer App
+In order to use the **Instagram API**, we must first create a **Meta App**. Follow the steps below to create a Meta App.
 1. Go to [Meta for Developers site](https://developers.facebook.com/apps/create/), login and create App. Select the app type as **None**.
 [![Meta App Step 1](https://yizack.com/images/instagram-feed/meta-app-1.jpg)](https://developers.facebook.com/)
 2. Provide your App details.
@@ -60,7 +90,7 @@ foreach($feed->getFeed() as $value) {
 7. Enter your **Site URL** and save changes.
 [![Meta App Step 6](https://yizack.com/images/instagram-feed/meta-app-7.jpg)](https://developers.facebook.com/)
 
-- ### Instagram Basic Display API
+### Instagram Basic Display API
   Now it's time to authorize your instagram account.
 1. Back to Products > Instagram > Basic Display. Create new App.
 [![Instagram App Step 1](https://yizack.com/images/instagram-feed/instagram-app-1.jpg)](https://developers.facebook.com/)
@@ -79,3 +109,5 @@ foreach($feed->getFeed() as $value) {
 8. Click on **I Understand** checkbox and copy the generated token.
 [![Instagram App Step 8](https://yizack.com/images/instagram-feed/instagram-app-8.jpg)](https://developers.facebook.com/)
 9. Paste your token in your code.
+
+##
