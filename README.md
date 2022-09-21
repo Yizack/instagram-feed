@@ -71,7 +71,7 @@ Check the [`example`](/example) folder for details.
 
 ## Requeriments Guide
 ### PHP Hosting
-  I think you can use any PHP Hosting unless it doesn't support `fopen()`.
+You can use any PHP Hosting unless it doesn't support `fopen()`.
 
 ### Meta Developer App
 In order to use the **Instagram API**, we must first create a **Meta App**. Follow the steps below to create a Meta App.
