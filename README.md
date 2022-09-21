@@ -22,7 +22,7 @@ Installing this library will allow you to use the class `InstagramFeed` just by 
 require 'vendor/autoload.php';
 
 $feed = new Yizack\InstagramFeed(
-  "long-lived-access-token", // Paste your long-lived-access-token here
+  "long-lived-access-token" // Paste your long-lived-access-token here
 );
 ```
 
