@@ -74,7 +74,7 @@ Since Long-lived tokens are valid for 60 days and can be refreshed as long as th
 Tokens that have not been refreshed in 60 days will expire and can no longer be refreshed, so be sure to visit often the site where you placed the feed.
 
 ## Example of use
-Check the [`example`](https://github.com/Yizack/instagram-feed/blob/master/example/) folder for details.
+Check the [`example`](/example/) folder for details.
 
 ## Requeriments Guide
 ### PHP Hosting

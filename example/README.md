@@ -141,4 +141,4 @@ Javascript **Glide.js** code settings.
 Inside `post(...)` method, there is a HTML `<blockquote>` code that is provided by instargam when you want to embed a post. I added the argument values of `$username`, `$permalink`, `$caption`, and $timestamp to match each post.
 
 ## Demo
-Visit the demo on [instagram-feed.yizack.com/demo](https://instagram-feed.yizack.com/demo).
+Visit the demo on [instagram-feed.yizack.com/demo](https://instagram-feed.yizack.com/demo/).
