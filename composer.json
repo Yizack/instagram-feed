@@ -1,8 +1,9 @@
 {
     "name": "yizack/instagram-feed",
-    "type": "library",
     "description": "Get feed from an authorized Instagram user with auto refresh access token",
+    "type": "library",
     "license": "MIT",
+    "keywords": ["instagram", "feed", "meta"],
     "autoload": {
         "psr-4": {
             "Yizack\\": "src/"

@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 use Yizack\InstagramFeed;
 
 $feed = new InstagramFeed(
@@ -76,7 +76,7 @@ foreach($feed->getFeed() as $value) {
     }
 
 ?>
-              <li class="glide__slide"><?= post($username, $permalink, $caption, $timestamp); ?></li>
+          <li class="glide__slide"><?= post($username, $permalink, $caption, $timestamp); ?></li>
 <?php
 }
 ?>
