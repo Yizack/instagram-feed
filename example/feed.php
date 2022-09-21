@@ -1,124 +1,128 @@
 <?php
-require 'functions.php';
+require '../vendor/autoload.php';
 
-refreshToken();
-$post = instagramFeed();
+$feed = new Yizack\InstagramFeed(
+  "long-lived-access-token", // Your long-lived-access-token
+);
 ?>
 
 <html>
   <head>
-  <meta charset="utf-8"/>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css"/>
-  </head>
-  <style>
-    html, body {
+    <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.5.2/dist/css/glide.core.min.css">
+    <style>
+      html, body {
         height: fit-content;
         overflow-y: hidden;
         overflow-x: hidden;
-        margin: 0;
         background: transparent;
-    }
-    
-    iframe {
-        min-width: 0 !important;
+        margin: 0;
+      }
+      
+      iframe {
+        min-width: 0;
         margin: auto!important;
-    }
+      }
 
-    .ig-feed {
-          margin-top: -62.6px !important;
-    }
-    
-    .slick-slider {
-        touch-action: auto;
-        -ms-touch-action: auto;
-    }
-    
-    [tabindex="-1"]:focus:not(:focus-visible) {
-        outline: none!important;
-    }
+      .glide {
+        margin-top: -62.6px;
+      }
 
-    
-    .slick-prev {
-        left: 0;
-        z-index: 1;
-    }
-    
-    .slick-next {
-        right: 13px;
-        z-index: 1;
-    }
-    
-    .slick-prev:before, .slick-next:before {
-        opacity: 1!important;
-        color: black;
-        font-size: 2rem;
-    }
-    
-    .slick-slide {
-        height: unset;
-    }
+      .glide__arrow {
+        position: absolute;
+        display: block;
+        margin-bottom: -20px;
+        padding: 10px;
+        cursor: pointer;
+        background: #fff;
+        border-radius: 100%;
+        border-style: solid;
+        color: #262626;
+        border-color: #dbdbdb;
+      }
 
-    .slick-list {
-        height: 100%!important;
-    }
-  </style>
+      .glide__arrow:hover {
+        position: absolute;
+        display: block;
+        margin-bottom: -20px;
+        padding: 10px;
+        cursor: pointer;
+        background: #262626;
+        border-radius: 100%;
+        border-style: solid;
+        color: #fff;
+        border-color: #dbdbdb;
+      }
+
+      .glide__arrow--right {
+        bottom: 50%;
+        right: 15px;
+      }
+
+      .glide__arrow--left {
+        bottom: 50%;
+        left: 15px;
+      }
+    </style>
+  </head>
   <body>
-  <div class="ig-feed" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
-<?
-for ($x = 0; $x < count($post); $x++) {
-    $username = $post[$x]["username"];
-    $permalink = $post[$x]["permalink"];
-    if(isset($post[$x]["caption"])) {
-        $caption = $post[$x]["caption"];
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+<?php
+foreach($feed->getFeed() as $value) {
+    $username = $value["username"];
+    $permalink = $value["permalink"];
+    $timestamp = $value["timestamp"];
+    $caption = "";
+
+    if(isset($value["caption"])) {
+      $caption = $value["caption"];
     }
-    $timestamp = $post[$x]["timestamp"];
+
 ?>
-    
-      <div class="text-center">
-        <?= post($username, $permalink, $caption, $timestamp); ?>
-      </div>
-<?
+              <li class="glide__slide"><?= post($username, $permalink, $caption, $timestamp); ?></li>
+<?php
 }
 ?>
+      
+        </ul>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <span class="glide__arrow glide__arrow--left" data-glide-dir="<">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          </svg>
+        </span>
+        <span class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </span>
+      </div>
     </div>
     <script async src="https://www.instagram.com/embed.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js"></script>
     <script>
-        $('.ig-feed').slick({
-          infinite: false,
-          speed: 300,
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          adaptiveHeight: true,
-          dots:false,
-          arrows: true,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-              }
-            }
-          ]
-        });
+      new Glide('.glide', {
+        perView: 3,
+        bound: true,
+        breakpoints: {
+          968: {
+            perView: 2
+          },
+          630: {
+            perView: 1
+          }
+        }
+      }).mount()
     </script>
   </body>
 <html>
   
-<?
-function post($username, $permalink, $caption, $timestamp){
+<?php
+function post($username, $permalink, $caption, $timestamp) {
 ?>
 <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: auto; max-width:540px; min-width:326px; padding:0; width:90%;">
   <div style="padding:16px;">
@@ -176,6 +180,6 @@ function post($username, $permalink, $caption, $timestamp){
     </p>
   </div>
 </blockquote>
-<?
+<?php
 }
 ?>

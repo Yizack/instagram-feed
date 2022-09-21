@@ -1,0 +1,17 @@
+{
+    "name": "yizack/instagram-feed",
+    "type": "library",
+    "description": "Get feed from an authorized Instagram user with auto refresh access token",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yizack\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yizack Rangel",
+            "email": "yizackr@gmail.com"
+        }
+    ]
+}

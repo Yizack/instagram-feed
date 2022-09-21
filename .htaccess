@@ -4,7 +4,6 @@ DirectorySlash Off
 RewriteEngine On
 RewriteBase /
 
-# EXTENSIONES .php, .html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule (.*)/$ /$1 [NC,L]
 
