@@ -1,8 +1,9 @@
 <?php
 require '../vendor/autoload.php';
+use Yizack\InstagramFeed;
 
-$feed = new Yizack\InstagramFeed(
-  "long-lived-access-token", // Your long-lived-access-token
+$feed = new InstagramFeed(
+  "long-lived-access-token" // Your long-lived-access-token
 );
 ?>
 
@@ -32,7 +33,6 @@ $feed = new Yizack\InstagramFeed(
       .glide__arrow {
         position: absolute;
         display: block;
-        margin-bottom: -20px;
         padding: 10px;
         cursor: pointer;
         background: #fff;
@@ -43,26 +43,20 @@ $feed = new Yizack\InstagramFeed(
       }
 
       .glide__arrow:hover {
-        position: absolute;
-        display: block;
-        margin-bottom: -20px;
-        padding: 10px;
-        cursor: pointer;
         background: #262626;
-        border-radius: 100%;
         border-style: solid;
         color: #fff;
         border-color: #dbdbdb;
       }
 
       .glide__arrow--right {
-        bottom: 50%;
-        right: 15px;
+        top: 300px;
+        right: 0px;
       }
 
       .glide__arrow--left {
-        bottom: 50%;
-        left: 15px;
+        top: 300px;
+        left: 0px;
       }
     </style>
   </head>
