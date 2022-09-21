@@ -18,7 +18,7 @@ class InstagramFeed extends Config {
         if (!file_exists($path)) {
             mkdir($path, 0777, true);
             $fp = fopen("$path/$filename", "w");
-            fwrite($fp, json_encode($array, JSON_PRETTY_PRINT));
+            fwrite($fp, json_encode($array));
             fclose($fp);
         }
         
@@ -28,7 +28,7 @@ class InstagramFeed extends Config {
             $this->request("https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
             $array = ["updated" => $date];
             $fp = fopen("$path/$filename", "w");
-            fwrite($fp, json_encode($array, JSON_PRETTY_PRINT));
+            fwrite($fp, json_encode($array));
             fclose($fp);
         }
         
