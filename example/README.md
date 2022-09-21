@@ -135,7 +135,7 @@ Javascript **Glide.js** code settings.
         perView: 1
       }
     }
-  }).mount()
+  }).mount();
 </script>
 ```
 Inside `post(...)` method, there is a HTML `<blockquote>` code that is provided by instargam when you want to embed a post. I added the argument values of `$username`, `$permalink`, `$caption`, and $timestamp to match each post.
