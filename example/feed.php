@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require "vendor/autoload.php";
 use Yizack\InstagramFeed;
 
 $feed = new InstagramFeed(
@@ -100,7 +100,7 @@ foreach($feed->getFeed() as $value) {
     <script async src="https://www.instagram.com/embed.js"></script>
     <script src="https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js"></script>
     <script>
-      new Glide('.glide', {
+      new Glide(".glide", {
         perView: 3,
         bound: true,
         breakpoints: {

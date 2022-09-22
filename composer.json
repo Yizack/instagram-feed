@@ -1,6 +1,6 @@
 {
     "name": "yizack/instagram-feed",
-    "description": "Get feed from an authorized Instagram user with auto refresh access token",
+    "description": "PHP library to retrieve an Instagram profile feed, embed the feed of your authorized Instagram accounts on your website. The library uses the Instagram Basic Display API with auto-refreshing access token support",
     "type": "library",
     "license": "MIT",
     "keywords": ["instagram", "feed", "meta"],

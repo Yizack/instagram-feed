@@ -20,7 +20,7 @@ Use the code below, replace `http://your-site.com/feed.php` with your site URL a
 Paste here your Instagram Basic Display API long-lived access token.
 ```php
 <?php
-require 'vendor/autoload.php';
+require "vendor/autoload.php";
 use Yizack\InstagramFeed;
 
 $feed = new InstagramFeed(
@@ -125,7 +125,7 @@ Page and **Glide.js** arrows CSS styling in `<head>`.
 Javascript **Glide.js** code settings.
 ```html
 <script>
-  new Glide('.glide', {
+  new Glide(".glide", {
     perView: 3,
     bound: true,
     breakpoints: {
@@ -139,7 +139,7 @@ Javascript **Glide.js** code settings.
   }).mount();
 </script>
 ```
-Inside `post(...)` method, there is a HTML `<blockquote>` code that is provided by instargam when you want to embed a post. I added the argument values of `$username`, `$permalink`, `$caption`, and $timestamp to match each post.
+Inside `post(...)` method, there is a HTML `<blockquote>` code that is provided by instargam when you want to embed a post. I added the argument values of `$username`, `$permalink`, `$caption`, and `$timestamp` to match each post.
 
 ## Demo
 Visit the demo on [instagram-feed.yizack.com/demo](https://instagram-feed.yizack.com/demo/).

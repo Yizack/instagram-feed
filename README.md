@@ -1,7 +1,7 @@
 # instagram-feed
 [![Packagist](https://img.shields.io/packagist/v/yizack/instagram-feed.svg)](https://packagist.org/packages/yizack/instagram-feed)
 
-PHP library to retrieve Instagram profile feed, embed Instagram profile feed of your Instagram accounts on your website using PHP.
+PHP library to retrieve an Instagram profile feed, embed the feed of your authorized Instagram accounts on your website. The library uses the Instagram Basic Display API with auto-refreshing access token support.
 
 (Live [Demo](https://instagram-feed.yizack.com/demo/))
 
@@ -19,7 +19,7 @@ composer require yizack/instagram-feed
 ```
 
 ## Use
-Installing this library will allow you to use the class `InstagramFeed` just by importing the composer autoload.
+Installing this library will allow you to use the `InstagramFeed` class by simply importing the composer autoload.
 
 Import the composer autoload, use the namespace `Yizack\InstagramFeed` and initialize the `InstagramFeed` object.
 ```php
@@ -78,7 +78,7 @@ Check the [`example`](/example/) folder for details.
 
 ## Requeriments Guide
 ### PHP Hosting
-You can use any PHP Hosting unless it doesn't support `fopen()`.
+You can use any PHP Hosting unless it does not support `fopen()`.
 
 ### Meta Developer App
 In order to use the **Instagram API**, we must first create a **Meta App**. Follow the steps below to create a Meta App.
@@ -99,7 +99,7 @@ In order to use the **Instagram API**, we must first create a **Meta App**. Foll
 [![Meta App Step 6](https://yizack.com/images/instagram-feed/meta-app-7.jpg)](https://developers.facebook.com/)
 
 ### Instagram Basic Display API
-Now it's time to authorize your instagram account.
+Now it is time to authorize your instagram account.
 
 1. Back to Products > Instagram > Basic Display. Create new App.\
 [![Instagram App Step 1](https://yizack.com/images/instagram-feed/instagram-app-1.jpg)](https://developers.facebook.com/)
