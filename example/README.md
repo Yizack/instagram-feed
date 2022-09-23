@@ -13,7 +13,7 @@ Crate a new PHP file with the content of [`feed.php`](https://github.com/Yizack/
 ## Feed page on your website
 Use the code below, replace `http://your-site.com/feed.php` with your site URL and paste it on your site where you want your Instagram feed to appear.
 ```html
-<iframe style="border: none;height: 100vh" src="http://your-site.com/feed" width="100%"></iframe>
+<iframe style="border: none;height: 100vh" src="http://your-site.com/feed.php" width="100%"></iframe>
 ```
 
 ## About the code
