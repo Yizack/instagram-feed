@@ -4,6 +4,9 @@
     "type": "library",
     "license": "MIT",
     "keywords": ["instagram", "feed", "meta"],
+    "require": {
+        "php": ">=7.3"
+    },
     "autoload": {
         "psr-4": {
             "Yizack\\": "src/"
