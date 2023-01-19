@@ -36,7 +36,7 @@ class InstagramFeed extends Config {
 
     function getFeed() {
         $this->refreshToken();
-        return $this->request("https://graph.instagram.com/me/media?fields=username,permalink,timestamp,caption&access_token=" . $this->getToken())["data"];
+        return $this->request("https://graph.instagram.com/me/media?fields=username,permalink,timestamp,media_type,media_url,thumbnail_url&access_token=" . $this->getToken())["data"];
     }
 }
 ?>
