@@ -88,7 +88,9 @@ foreach($feed->getFeed() as $value) {
     }
 
 ?>
-          <li class="glide__slide"><?= post($username, $permalink, $caption, $timestamp); ?></li>
+          <li class="glide__slide">
+              <div class="instagram-wrapper"><?= post($username, $permalink, $caption, $timestamp); ?></div>
+          </li>
 <?php
 }
 ?>
