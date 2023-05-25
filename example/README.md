@@ -45,7 +45,9 @@ foreach($feed->getFeed() as $value) {
     }
 
 ?>
-    <li class="glide__slide"><?= post($username, $permalink, $caption, $timestamp); ?></li>
+    <li class="glide__slide">
+        <div class="instagram-wrapper"><?= post($username, $permalink, $caption, $timestamp); ?></div>
+    </li>
 <?php
 }
 ?>
@@ -59,7 +61,7 @@ HTML **Glide.js** slide arrows.
 <div class="glide__arrows" data-glide-el="controls">
   <span class="glide__arrow glide__arrow--left" data-glide-dir="<">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
     </svg>
   </span>
   <span class="glide__arrow glide__arrow--right" data-glide-dir=">">
@@ -82,13 +84,12 @@ Page and **Glide.js** arrows CSS styling in `<head>`.
     -webkit-tap-highlight-color: transparent;
   }
   
-  iframe {
-    min-width: 0;
-    margin: auto!important;
-  }
-
-  .glide {
-    margin-top: -62.6px;
+  .instagram-wrapper {
+    border-radius: 11px;
+    border: 1px solid rgb(219, 219, 219);
+    overflow: hidden;
+    width: 90%;
+    margin: auto;
   }
 
   .glide__arrow {
@@ -118,6 +119,19 @@ Page and **Glide.js** arrows CSS styling in `<head>`.
   .glide__arrow--left {
     top: 300px;
     left: 0px;
+  }
+  
+  .instagram-media {
+    border-radius: 3px!important;
+    border: 0!important;
+    box-shadow: none!important;
+    display: block!important;
+    min-width: 0!important;
+    margin: auto!important;
+    margin-bottom: -54px!important;
+    width: 100%!important;
+    position: relative;
+    top: -54px;
   }
 </style>
 ```
