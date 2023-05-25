@@ -91,6 +91,7 @@ Page and **Glide.js** arrows CSS styling in `<head>`.
     overflow: hidden;
     width: 90%;
     margin: auto;
+    max-height: 100%;
   }
 
   .glide__arrow {
