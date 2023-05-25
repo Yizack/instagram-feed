@@ -22,13 +22,12 @@ $feed = new InstagramFeed(
         -webkit-tap-highlight-color: transparent;
       }
       
-      iframe {
-        min-width: 0;
-        margin: auto!important;
-      }
-
-      .glide {
-        margin-top: -62.6px;
+      .instagram-wrapper {
+        border-radius: 11px;
+        border: 1px solid rgb(219, 219, 219);
+        overflow: hidden;
+        width: 90%;
+        margin: auto;
       }
 
       .glide__arrow {
@@ -58,6 +57,18 @@ $feed = new InstagramFeed(
       .glide__arrow--left {
         top: 300px;
         left: 0px;
+      }
+      
+      .instagram-media {
+        border-radius: 3px!important;
+        border: 0!important;
+        box-shadow: none!important;
+        display: block!important;
+        min-width: 0!important;
+        margin: auto!important;
+        width: 100%!important;
+        position: relative;
+        top: -54px;
       }
     </style>
   </head>
@@ -119,7 +130,7 @@ foreach($feed->getFeed() as $value) {
 <?php
 function post($username, $permalink, $caption, $timestamp) {
 ?>
-<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: auto; max-width:540px; min-width:326px; padding:0; width:90%;">
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: auto; max-width:540px; padding:0; width:100%;">
   <div style="padding:16px;">
     <a href="<?= $permalink ?>?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none;" target="_blank">
       <div style=" display: flex; flex-direction: row; align-items: center;">
