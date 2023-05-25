@@ -85,6 +85,7 @@ Page and **Glide.js** arrows CSS styling in `<head>`.
   }
   
   .instagram-wrapper {
+    background: white;
     border-radius: 11px;
     border: 1px solid rgb(219, 219, 219);
     overflow: hidden;
