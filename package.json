@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "version": "1.0.1",
+  "scripts": {
+    "release": "changelogen --release"
+  },
+  "devDependencies": {
+    "changelogen": "^0.5.5"
+  }
+}
