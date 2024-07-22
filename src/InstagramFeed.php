@@ -29,7 +29,10 @@ class InstagramFeed extends Config {
         $updatedDate = $updatedJson["updated"] ?? $date;
         
         if (strtotime($date) - strtotime($updatedDate) > self::TOKEN_REFRESH_INTERVAL) {
-            $this->fetch("https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
+            $refresh = $this->fetch("https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
+            if (!$refresh) {
+                error_log("Warning: Failed to refresh token, please check your configuration or generate a new token.");
+            }
             file_put_contents($filePath, json_encode($array));
         }
     }
