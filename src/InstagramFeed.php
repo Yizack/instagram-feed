@@ -37,6 +37,14 @@ class InstagramFeed extends Config {
         }
     }
 
+    /**
+     * Get Instagram feed
+     * 
+     * For a list of all available fields see: https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields
+     * 
+     * @param string|null $fields Comma-separated list of fields to retrieve. Defaults to 'username,permalink,timestamp,caption'.
+     * @return array The Instagram feed data.
+     */
     function getFeed($fields = null) {
         $fields = $fields ?? 'username,permalink,timestamp,caption';
         $this->refreshToken();
