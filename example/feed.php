@@ -68,6 +68,7 @@ $feed = new InstagramFeed(
         margin: auto!important;
         margin-bottom: -54px!important;
         width: 100%!important;
+        max-width: 100%!important;
         position: relative;
         top: -54px;
       }
