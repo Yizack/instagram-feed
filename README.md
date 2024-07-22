@@ -1,4 +1,5 @@
 # instagram-feed
+
 [![Packagist](https://img.shields.io/packagist/v/yizack/instagram-feed.svg)](https://packagist.org/packages/yizack/instagram-feed)
 
 PHP library to retrieve an Instagram profile feed, embed the feed of your authorized Instagram accounts on your website. The library uses the Instagram Basic Display API with auto-refreshing access token support.
@@ -8,20 +9,25 @@ PHP library to retrieve an Instagram profile feed, embed the feed of your author
 [![Live Demo](https://yizack.com/images/instagram-feed/demo.gif)](https://instagram-feed.yizack.com/demo/)
 
 ## Requeriments
-- PHP Hosting (with `composer` and `fopen()` support)
+
+- PHP Hosting (with `composer`, `file_get_contents()`, `file_put_contents()` support)
 - Meta Developer App [[Guide]](#meta-developer-app)
 - Instagram Basic Display API [[Guide]](#instagram-basic-display-api)
 
 ## Installation
+
 To install the library, make sure you have [Composer](https://getcomposer.org/) installed and using your command terminal run the following:
+
 ```sh
 composer require yizack/instagram-feed
 ```
 
 ## Use
+
 Installing this library will allow you to use the `InstagramFeed` class by simply importing the composer autoload.
 
 Import the composer autoload, use the namespace `Yizack\InstagramFeed` and initialize the `InstagramFeed` object.
+
 ```php
 require "vendor/autoload.php";
 use Yizack\InstagramFeed;
@@ -32,11 +38,13 @@ $feed = new InstagramFeed(
 ```
 
 To retrieve your Instagram feed array use the `getFeed()` function.
+
 ```php
 $array = $feed->getFeed();
 ```
 
 Or loop it directly in a `foreach` method wherever you need it.
+
 ```php
 foreach ($feed->getFeed() as $value) {
     // your code
@@ -44,6 +52,7 @@ foreach ($feed->getFeed() as $value) {
 ```
 
 The `getFeed()` function also accepts a comma-separated list of fields to be returned.
+
 ```php
 $array = $feed->getFeed("username,permalink,timestamp,caption,media_url");
 ```
@@ -51,13 +60,14 @@ $array = $feed->getFeed("username,permalink,timestamp,caption,media_url");
 For a list of all available fields see: https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields
 
 ## About the code
+
 ### `InstagramFeed` constructor arguments
 
-| Argument | Type | Description | Optional | Default value |
-|---|---|---|---|---|
-| `token` | string | Your Instagram Basic Display `long-lived-access-token`. | No |  |
-| `path` | string | The path where the updated file will be saved on your server. | Yes | `ig_token` |
-| `filename` | string | The name of the file in which the date of the last token update will be stored. | Yes | `updated.json` |
+| Argument   | Type   | Description                                                                     | Optional | Default value  |
+|------------|--------|---------------------------------------------------------------------------------|----------|----------------|
+| `token`    | string | Your Instagram Basic Display `long-lived-access-token`.                         | No       |                |
+| `path`     | string | The path where the updated file will be saved on your server.                   | Yes      | `ig_token`     |
+| `filename` | string | The name of the file in which the date of the last token update will be stored. | Yes      | `updated.json` |
 
 ### `getFeed()` function
 Updates the date of the last token update and requests feed data from an Instagram account.
@@ -65,15 +75,16 @@ Updates the date of the last token update and requests feed data from an Instagr
 
 Returns an array with the data of the last 25 posts with the following data for each one:
 
-| Key | Description |
-|---|---|
-| `username` | Instagram username. |
-| `permalink` | Instagram post permalink. |
-| `timestamp` | Instagram post timestamp. |
-| `caption` | Instagram post caption. |
-| `id` | Instagram post identifier. |
+| Key         | Description                |
+|-------------|----------------------------|
+| `username`  | Instagram username.        |
+| `permalink` | Instagram post permalink.  |
+| `timestamp` | Instagram post timestamp.  |
+| `caption`   | Instagram post caption.    |
+| `id`        | Instagram post identifier. |
 
 ### Long-Lived Access token
+
 This approach uses **Long-Lived Access** Tokens obtained by authorizing your Instagram account with your Meta App.
 
 Since Long-lived tokens are valid for 60 days and can be refreshed as long as they are at least 24 hours old and not expired, the `getFeed()` method will refresh your token everytime it is been called if 24 hours have passed.
@@ -81,11 +92,14 @@ Since Long-lived tokens are valid for 60 days and can be refreshed as long as th
 Tokens that have not been refreshed in 60 days will expire and can no longer be refreshed, so be sure to visit often the site where you placed the feed.
 
 ## Example of use
+
 Check the [`example`](/example/) folder for details.
 
 ## Requeriments Guide
+
 ### PHP Hosting
-You can use any PHP Hosting unless it does not support `fopen()`.
+
+You can use any PHP Hosting unless it does not support `file_get_contents()` and `file_put_contents()`.
 
 ### Meta Developer App
 In order to use the **Instagram API**, we must first create a **Meta App**. Follow the steps below to create a Meta App.
@@ -106,6 +120,7 @@ In order to use the **Instagram API**, we must first create a **Meta App**. Foll
 [![Meta App Step 6](https://yizack.com/images/instagram-feed/meta-app-7.jpg)](https://developers.facebook.com/)
 
 ### Instagram Basic Display API
+
 Now it is time to authorize your instagram account.
 
 1. Back to Products > Instagram > Basic Display. Create new App.\
@@ -127,4 +142,5 @@ Now it is time to authorize your instagram account.
 9. Paste your token in your code.
 
 ## Repository
+
 [Yizack/instagram-feed](https://github.com/Yizack/instagram-feed) on GitHub.
