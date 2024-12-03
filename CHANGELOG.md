@@ -1,4 +1,29 @@
 
+## v1.1.2
+
+[compare changes](https://github.com/Yizack/instagram-feed/compare/v1.1.1...v1.1.2)
+
+### 🩹 Fixes
+
+- Refresh interval time ([b60183d](https://github.com/Yizack/instagram-feed/commit/b60183d))
+
+### 💅 Refactors
+
+- Internal class refactor ([4a6e3a1](https://github.com/Yizack/instagram-feed/commit/4a6e3a1))
+
+### 📖 Documentation
+
+- Update guide due to instagram basic display api deprecation ([#10](https://github.com/Yizack/instagram-feed/pull/10))
+
+### 🏡 Chore
+
+- Config class with private props ([e7594c4](https://github.com/Yizack/instagram-feed/commit/e7594c4))
+- Update changelogen ([7b51e2e](https://github.com/Yizack/instagram-feed/commit/7b51e2e))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v1.1.1
 
 [compare changes](https://github.com/Yizack/instagram-feed/compare/v1.1.0...v1.1.1)
