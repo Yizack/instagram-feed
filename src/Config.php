@@ -2,9 +2,9 @@
 namespace Yizack;
 
 class Config {
-    public $token;
-    public $path;
-    public $filename;
+    private $token;
+    private $path;
+    private $filename;
 
     function __construct($token, $path = "ig_token", $filename = "updated.json") {
         $this->token = $token; // long-lived-access-token
