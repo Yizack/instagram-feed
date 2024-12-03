@@ -4,13 +4,14 @@ namespace Yizack;
 require_once "Config.php";
 
 class InstagramFeed extends Config {
-    protected const TOKEN_REFRESH_INTERVAL = 86400; // 24 hours in seconds
+    private const BASE_URL = "https://graph.instagram.com";
+    private const TOKEN_REFRESH_INTERVAL = 86400; // 24 hours in seconds
 
-    protected function fetch($path) {
-        return json_decode(file_get_contents($path), true); 
+    private function fetch($path) {
+        return json_decode(file_get_contents(self::BASE_URL . $path), true); 
     }
 
-    protected function refreshToken() {
+    private function refreshToken() {
         $path = $this->getPath();
         $filename = $this->getFilename();
         $filePath = "$path/$filename";
@@ -29,7 +30,7 @@ class InstagramFeed extends Config {
         $updatedDate = $updatedJson["updated"] ?? $date;
         
         if (strtotime($date) - strtotime($updatedDate) > self::TOKEN_REFRESH_INTERVAL) {
-            $refresh = $this->fetch("https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
+            $refresh = $this->fetch("/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
             if (!$refresh) {
                 error_log("Warning: Failed to refresh token, please check your configuration or generate a new token.");
             }
@@ -45,10 +46,10 @@ class InstagramFeed extends Config {
      * @param string|null $fields Comma-separated list of fields to retrieve. Defaults to 'username,permalink,timestamp,caption'.
      * @return array The Instagram feed data.
      */
-    function getFeed($fields = null) {
+    public function getFeed($fields = null) {
         $fields = $fields ?? 'username,permalink,timestamp,caption';
         $this->refreshToken();
-        $feed = $this->fetch("https://graph.instagram.com/me/media?fields=" . $fields . "&access_token=" . $this->getToken());
+        $feed = $this->fetch("/me/media?fields=" . $fields . "&access_token=" . $this->getToken());
         return $feed["data"] ?? [];
     }
 }
