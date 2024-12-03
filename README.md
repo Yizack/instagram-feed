@@ -8,11 +8,15 @@ PHP library to retrieve an Instagram profile feed, embed the feed of your author
 
 [![Live Demo](https://yizack.com/images/instagram-feed/demo.gif)](https://instagram-feed.yizack.com/demo/)
 
+# Limitations
+
+- Only available for Instagram Business or Creator accounts. (Since December 4th, 2024. [Read the Basic Display API deprecation note](https://developers.facebook.com/blog/post/2024/09/04/update-on-instagram-basic-display-api/).)
+
 ## Requeriments
 
 - PHP Hosting (with `composer`, `file_get_contents()`, `file_put_contents()` support)
 - Meta Developer App [[Guide]](#meta-developer-app)
-- Instagram Basic Display API [[Guide]](#instagram-basic-display-api)
+- Instagram API [[Guide]](#instagram-api)
 
 ## Installation
 
@@ -102,44 +106,32 @@ Check the [`example`](/example/) folder for details.
 You can use any PHP Hosting unless it does not support `file_get_contents()` and `file_put_contents()`.
 
 ### Meta Developer App
+
 In order to use the **Instagram API**, we must first create a **Meta App**. Follow the steps below to create a Meta App.
 
-1. Go to [Meta for Developers site](https://developers.facebook.com/apps/create/), login and create App. Select the app type as **None**.\
-[![Meta App Step 1](https://yizack.com/images/instagram-feed/meta-app-1.jpg)](https://developers.facebook.com/)
-2. Provide your App details.\
-[![Meta App Step 2](https://yizack.com/images/instagram-feed/meta-app-2.jpg)](https://developers.facebook.com/)
-3. Look for **Instagram Basic Display** product, and click on **Set up** to use the Instagram API.\
-[![Meta App Step 3](https://yizack.com/images/instagram-feed/meta-app-3.jpg)](https://developers.facebook.com/)
-4. Scroll down until you see an alert and click on **Settings** to update your App settings.\
-[![Meta App Step 4](https://yizack.com/images/instagram-feed/meta-app-4.jpg)](https://developers.facebook.com/)
-5. Scroll down and click on the **Add Platform** button.\
-[![Meta App Step 5](https://yizack.com/images/instagram-feed/meta-app-5.jpg)](https://developers.facebook.com/)
-6. Select the platform **Website**.\
-[![Meta App Step 6](https://yizack.com/images/instagram-feed/meta-app-6.jpg)](https://developers.facebook.com/)
-7. Enter your **Site URL** and save changes.\
-[![Meta App Step 6](https://yizack.com/images/instagram-feed/meta-app-7.jpg)](https://developers.facebook.com/)
+1. Go to [Meta for Developers site](https://developers.facebook.com/apps/create/), login and create App. Select the app type as **Business**.
+[![Meta App Step 1](https://github.com/user-attachments/assets/0e13c938-d479-43aa-a4cd-db95c89c6107)](https://developers.facebook.com/)
 
-### Instagram Basic Display API
+2. Provide your App details.
+[![Meta App Step 2](https://github.com/user-attachments/assets/805ab216-4ac6-4be0-95c5-ef5a49a6fa74)](https://developers.facebook.com/)
 
-Now it is time to authorize your instagram account.
+### Instagram API
 
-1. Back to Products > Instagram > Basic Display. Create new App.\
-[![Instagram App Step 1](https://yizack.com/images/instagram-feed/instagram-app-1.jpg)](https://developers.facebook.com/)
-2. Fill OAuth Redirect, Deauthorize Callback and Data Deletion Request URL with your site URL and save changes.\
-[![Instagram App Step 2](https://yizack.com/images/instagram-feed/instagram-app-2.jpg)](https://developers.facebook.com/)
-3. Add Instagram testers.\
-[![Instagram App Step 3](https://yizack.com/images/instagram-feed/instagram-app-3.jpg)](https://developers.facebook.com/)
-4. Enter your Instagram username and select your profile.\
-[![Instagram App Step 4](https://yizack.com/images/instagram-feed/instagram-app-4.jpg)](https://developers.facebook.com/)
-5. Go to your Instagram account settings page > App and Websites > Tester invites, accept the invite.\
-[![Instagram App Step 5](https://yizack.com/images/instagram-feed/instagram-app-5.jpg)](https://developers.facebook.com/)
-6. Back to Products > Instagram > Basic Display > User Token Generator, you Instagram account should appear in the list, then click **Generate Token** button for authorize and generate long-lived access token for Instagram.\
-[![Instagram App Step 6](https://yizack.com/images/instagram-feed/instagram-app-6.jpg)](https://developers.facebook.com/)
-7. Login and authorize the App.\
-[![Instagram App Step 7](https://yizack.com/images/instagram-feed/instagram-app-7.jpg)](https://developers.facebook.com/)
-8. Click on **I Understand** checkbox and copy the generated token.\
-[![Instagram App Step 8](https://yizack.com/images/instagram-feed/instagram-app-8.jpg)](https://developers.facebook.com/)
-9. Paste your token in your code.
+Now it is time to authorize your Instagram Business or Creator account.
+
+1. Look for **Instagram** product, and click on **Set up** to use the Instagram API.
+[![Instagram API Step 1](https://github.com/user-attachments/assets/e6f5eac4-dfe9-4f3e-8177-6ad903b81539)](https://developers.facebook.com/)
+
+2. In the **Generate access tokens** section, Click on the **Add account** button.
+[![Instagram API Step 2](https://github.com/user-attachments/assets/0a7ab7d5-da79-4a45-a808-5a1f7c7e1339)](https://developers.facebook.com/)
+
+3. Login using your Instagram Business or Creator account and allow the permissions.
+[![Instagram API Step 3](https://github.com/user-attachments/assets/597b3077-21ee-44ad-9eaa-259e49b48b87)](https://developers.facebook.com/)
+
+4. Click on **Generate token**, allow the permissions, and copy the generated token inside the code.
+[![Instagram API Step 4](https://github.com/user-attachments/assets/0a0982e2-c7b7-488c-8942-028fdc4bae36)](https://developers.facebook.com/)
+
+5. Paste your token in your code.
 
 ## Repository
 
