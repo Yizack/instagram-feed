@@ -2,7 +2,7 @@
 
 [![Packagist](https://img.shields.io/packagist/v/yizack/instagram-feed.svg)](https://packagist.org/packages/yizack/instagram-feed)
 
-PHP library to retrieve an Instagram profile feed, embed the feed of your authorized Instagram accounts on your website. The library uses the Instagram Basic Display API with auto-refreshing access token support.
+PHP library to retrieve an Instagram profile feed, embed the feed of your authorized Instagram accounts on your website. The library uses the Instagram API with auto-refreshing access token support.
 
 (Live [Demo](https://instagram-feed.yizack.com/demo/))
 
@@ -61,7 +61,7 @@ The `getFeed()` function also accepts a comma-separated list of fields to be ret
 $array = $feed->getFeed("username,permalink,timestamp,caption,media_url");
 ```
 
-For a list of all available fields see: https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields
+For a list of all available fields see: https://developers.facebook.com/docs/instagram-platform/reference/instagram-media#fields
 
 ## About the code
 
@@ -69,7 +69,7 @@ For a list of all available fields see: https://developers.facebook.com/docs/ins
 
 | Argument   | Type   | Description                                                                     | Optional | Default value  |
 |------------|--------|---------------------------------------------------------------------------------|----------|----------------|
-| `token`    | string | Your Instagram Basic Display `long-lived-access-token`.                         | No       |                |
+| `token`    | string | Your Instagram `long-lived-access-token`.                         | No       |                |
 | `path`     | string | The path where the updated file will be saved on your server.                   | Yes      | `ig_token`     |
 | `filename` | string | The name of the file in which the date of the last token update will be stored. | Yes      | `updated.json` |
 
