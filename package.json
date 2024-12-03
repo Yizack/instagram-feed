@@ -5,6 +5,6 @@
     "release": "changelogen --release"
   },
   "devDependencies": {
-    "changelogen": "^0.5.5"
+    "changelogen": "^0.5.7"
   }
 }
