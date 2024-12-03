@@ -4,7 +4,7 @@ namespace Yizack;
 require_once "Config.php";
 
 class InstagramFeed extends Config {
-    protected const TOKEN_REFRESH_INTERVAL = 1; // 24 hours in seconds
+    protected const TOKEN_REFRESH_INTERVAL = 86400; // 24 hours in seconds
 
     protected function fetch($path) {
         return json_decode(file_get_contents($path), true); 
