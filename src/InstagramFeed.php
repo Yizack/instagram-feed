@@ -8,7 +8,7 @@ class InstagramFeed extends Config {
     private const TOKEN_REFRESH_INTERVAL = 86400; // 24 hours in seconds
 
     private function fetch($path) {
-        return json_decode(file_get_contents(self::BASE_URL . $path), true); 
+        return json_decode(file_get_contents($path), true);
     }
 
     private function refreshToken() {
@@ -30,7 +30,7 @@ class InstagramFeed extends Config {
         $updatedDate = $updatedJson["updated"] ?? $date;
         
         if (strtotime($date) - strtotime($updatedDate) > self::TOKEN_REFRESH_INTERVAL) {
-            $refresh = $this->fetch("/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
+            $refresh = $this->fetch(self::BASE_URL . "/refresh_access_token?grant_type=ig_refresh_token&access_token=" . $this->getToken());
             if (!$refresh) {
                 error_log("Warning: Failed to refresh token, please check your configuration or generate a new token.");
             }
@@ -49,7 +49,7 @@ class InstagramFeed extends Config {
     public function getFeed($fields = null) {
         $fields = $fields ?? 'username,permalink,timestamp,caption';
         $this->refreshToken();
-        $feed = $this->fetch("/me/media?fields=" . $fields . "&access_token=" . $this->getToken());
+        $feed = $this->fetch(self::BASE_URL . "/me/media?fields=" . $fields . "&access_token=" . $this->getToken());
         return $feed["data"] ?? [];
     }
 }
