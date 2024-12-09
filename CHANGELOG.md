@@ -1,4 +1,16 @@
 
+## v1.1.3
+
+[compare changes](https://github.com/Yizack/instagram-feed/compare/v1.1.2...v1.1.3)
+
+### 🩹 Fixes
+
+- Correct path if custom path to .json file ([#11](https://github.com/Yizack/instagram-feed/pull/11))
+
+### ❤️ Contributors
+
+- J.Brabec ([@a-d-w-s](http://github.com/a-d-w-s))
+
 ## v1.1.2
 
 [compare changes](https://github.com/Yizack/instagram-feed/compare/v1.1.1...v1.1.2)
