@@ -1,4 +1,25 @@
 
+## v2.0.0
+
+[compare changes](https://github.com/Yizack/instagram-feed/compare/v1.1.3...v2.0.0)
+
+### 💅 Refactors
+
+- ⚠️  Change `getFeed` method to accept fields parameter as an array ([babf678](https://github.com/Yizack/instagram-feed/commit/babf678))
+
+### 🏡 Chore
+
+- **example:** Add style file and update glidejs ([2b273bc](https://github.com/Yizack/instagram-feed/commit/2b273bc))
+- **example:** Tag filtering example ([#13](https://github.com/Yizack/instagram-feed/pull/13))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Change `getFeed` method to accept fields parameter as an array ([babf678](https://github.com/Yizack/instagram-feed/commit/babf678))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v1.1.3
 
 [compare changes](https://github.com/Yizack/instagram-feed/compare/v1.1.2...v1.1.3)
