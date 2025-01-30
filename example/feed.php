@@ -11,87 +11,28 @@ $feed = new InstagramFeed(
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.5.2/dist/css/glide.core.min.css">
-    <style>
-      html, body {
-        height: fit-content;
-        overflow-y: hidden;
-        overflow-x: hidden;
-        background: transparent;
-        margin: 0;
-        -webkit-tap-highlight-color: transparent;
-      }
-      
-      .instagram-wrapper {
-        border-radius: 11px;
-        border: 1px solid rgb(219, 219, 219);
-        overflow: hidden;
-        width: 90%;
-        margin: auto;
-      }
-
-      .glide__arrow {
-        position: absolute;
-        display: block;
-        padding: 10px;
-        cursor: pointer;
-        background: #fff;
-        border-radius: 100%;
-        border-style: solid;
-        color: #262626;
-        border-color: #dbdbdb;
-      }
-
-      .glide__arrow:hover {
-        background: #262626;
-        border-style: solid;
-        color: #fff;
-        border-color: #dbdbdb;
-      }
-
-      .glide__arrow--right {
-        top: 300px;
-        right: 0px;
-      }
-
-      .glide__arrow--left {
-        top: 300px;
-        left: 0px;
-      }
-      
-      .instagram-media {
-        border-radius: 3px!important;
-        border: 0!important;
-        box-shadow: none!important;
-        display: block!important;
-        min-width: 0!important;
-        margin: auto!important;
-        margin-bottom: -54px!important;
-        width: 100%!important;
-        max-width: 100%!important;
-        position: relative;
-        top: -54px;
-      }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.7.1/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <div class="glide">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
 <?php
-foreach($feed->getFeed() as $value) {
+foreach ($feed->getFeed() as $value) {
     $username = $value["username"];
     $permalink = $value["permalink"];
     $timestamp = $value["timestamp"];
     $caption = "";
 
-    if(isset($value["caption"])) {
-      $caption = $value["caption"];
+    if (isset($value["caption"])) {
+        $caption = $value["caption"];
     }
-
 ?>
           <li class="glide__slide">
-              <div class="instagram-wrapper"><?= post($username, $permalink, $caption, $timestamp); ?></div>
+            <div class="instagram-wrapper">
+              <?= post($username, $permalink, $caption, $timestamp); ?>
+            </div>
           </li>
 <?php
 }
@@ -113,7 +54,7 @@ foreach($feed->getFeed() as $value) {
       </div>
     </div>
     <script async src="https://www.instagram.com/embed.js"></script>
-    <script src="https://unpkg.com/@glidejs/glide@3.5.2/dist/glide.min.js"></script>
+    <script src="https://unpkg.com/@glidejs/glide@3.7.1/dist/glide.min.js"></script>
     <script>
       new Glide(".glide", {
         perView: 3,

@@ -1,0 +1,59 @@
+html, body {
+  height: fit-content;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background: transparent;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.instagram-wrapper {
+  border-radius: 11px;
+  border: 1px solid rgb(219, 219, 219);
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+}
+
+.glide__arrow {
+  position: absolute;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 100%;
+  border-style: solid;
+  color: #262626;
+  border-color: #dbdbdb;
+}
+
+.glide__arrow:hover {
+  background: #262626;
+  border-style: solid;
+  color: #fff;
+  border-color: #dbdbdb;
+}
+
+.glide__arrow--right {
+  top: 300px;
+  right: 0px;
+}
+
+.glide__arrow--left {
+  top: 300px;
+  left: 0px;
+}
+
+.instagram-media {
+  border-radius: 3px!important;
+  border: 0!important;
+  box-shadow: none!important;
+  display: block!important;
+  min-width: 0!important;
+  margin: auto!important;
+  margin-bottom: -54px!important;
+  width: 100%!important;
+  max-width: 100%!important;
+  position: relative;
+  top: -54px;
+}
