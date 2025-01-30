@@ -55,10 +55,10 @@ foreach ($feed->getFeed() as $value) {
 }
 ```
 
-The `getFeed()` function also accepts a comma-separated list of fields to be returned.
+The `getFeed()` function also accepts an array of fields to be returned.
 
 ```php
-$array = $feed->getFeed("username,permalink,timestamp,caption,media_url");
+$array = $feed->getFeed(["username", "permalink", "timestamp", "caption", "media_url"]);
 ```
 
 For a list of all available fields see: https://developers.facebook.com/docs/instagram-platform/reference/instagram-media#fields
