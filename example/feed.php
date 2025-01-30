@@ -5,6 +5,9 @@ use Yizack\InstagramFeed;
 $feed = new InstagramFeed(
   "long-lived-access-token" // Your long-lived-access-token
 );
+
+// If a tag is provided, filter posts in the for loop to include only those where the caption contains the tag.
+$tag = $_GET['tag'] ?? null;
 ?>
 
 <html>
@@ -19,15 +22,14 @@ $feed = new InstagramFeed(
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
 <?php
-foreach ($feed->getFeed() as $value) {
-    $username = $value["username"];
-    $permalink = $value["permalink"];
-    $timestamp = $value["timestamp"];
-    $caption = "";
-
-    if (isset($value["caption"])) {
-        $caption = $value["caption"];
+foreach ($feed->getFeed() as $item) {
+    if ($tag && !stripos($item["caption"], $tag)) {
+        continue;
     }
+    $username = $item["username"];
+    $permalink = $item["permalink"];
+    $timestamp = $item["timestamp"];
+    $caption = $item["caption"] ?? "";
 ?>
           <li class="glide__slide">
             <div class="instagram-wrapper">
