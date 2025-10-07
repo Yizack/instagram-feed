@@ -5,7 +5,7 @@
     "release": "changelogen --release"
   },
   "devDependencies": {
-    "changelogen": "^0.5.7"
+    "changelogen": "^0.6.2"
   },
-  "packageManager": "pnpm@10.2.0"
+  "packageManager": "pnpm@10.18.1"
 }
